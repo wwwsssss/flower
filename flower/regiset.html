@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/footer.css" />
+		<style>
+		a{
+			text-decoration:none;			
+		}	
+			form{
+				width:400px;
+				height:390px;
+				border:1px solid #ccc;
+				background:#f9f9f9;	
+				position:relative;							
+			}
+			h4{
+				font-size:18px;
+				height:60px;
+				margin:0px;
+				line-height:60px;
+				padding-left:30px;
+			}
+			.s{
+				width:100px;
+				display:inline-block;
+				text-align:right;
+				
+			}
+			.i{
+				width:225px;
+				height:26px;
+				margin-left:5px;
+				border:1px solid;
+				border-color:#aaa;	
+				background-color:#fff;						
+			}
+			.i:focus{
+				outline:2px solid #ffdc97;
+				/*border-color:#fff;*/
+				
+			}
+			div{
+				height:55px;
+				font-size:14px;
+				color:#666;				
+			}
+			.s2{								
+				width:60px;
+				height:26px;
+				margin-left:5px;
+				padding:0;
+			}
+			.super{
+				display:inline-block;
+				width:90px;
+				height:30px;
+				background:#fcc;
+				border:none;	
+				position:absolute;
+				top:-30px;
+				left:175px;		
+			}
+			.w0{
+				width:0;
+				height:0;
+				position:relative;
+			}
+			.s3{
+				width:100px;
+				position:absolute;
+				top:-25px;
+				left:270px;
+			}
+			.dlast{
+				padding-left:105px;
+			}
+			.zc{
+				width:96px;
+				height:28px;
+				background:#f08300;
+				color:#fff;
+				text-align:center;
+				line-height:30px;
+				border-radius:3px;
+				border:1px solid #f08300;
+			}
+			.s4{
+				color:#c53801;
+			}
+			#head{
+				height:120px;	
+				text-align:left;
+				padding-left:180px;	
+				padding-top:20px;		
+			}	
+			#main{
+				height:400px;
+			}		
+			#main .d{
+				width:450px;
+				height:400px;
+				margin-left:250px;
+				display:inline-block;
+				
+			}
+			#main form{
+				float:right;				
+				margin-right:300px;
+			}
+			.fdf{				
+				height:60px;
+				line-height:100px;
+			}
+			.fdf,.fds{
+				font-size:12px;
+				padding:0;
+				text-align:center;
+			}
+			.fds{
+				display:block;
+			}
+			.fdt{
+				font-size:12px;
+				padding-left:675px;
+				width:80px;
+			}
+			#foot{
+				margin-top:50px;
+				font-size:12px;
+				color:#ccc;
+			}
+			#yz{
+				text-align:center;
+				line-height:30px;
+			}
+			.dd{
+				display:inline-block;
+				width:200px;
+				height:64px;
+				margin-top:10px;				
+				
+			}
+			.dd i{
+				background:url(img/index/login.png);
+				display:inline-block;
+				width:48px;
+				height:48px; 
+				margin:0 12px 0 15px;
+				
+			}
+			#dd1{
+				background-position:-304px -48px;
+			}
+			#dd2{
+				background-position:-256px 0;
+			}
+			#dd3{
+				background-position:-352px 0;
+			}
+			#dd4{
+				background-position:-304px 0;
+			}
+			#dd5{
+				background-position:-352px -48px;
+			}
+			#dd6{
+				background-position:-256px -48px;
+			}
+			.dd div{
+				width:0;
+				height:0;
+				position:relative;
+			}
+			.dd span{
+				position:absolute;
+				top:-35px;
+				left:65px;	
+				width:120px;						
+			}
+			.ddd{
+				height:130px;
+				border-top:1px dashed #ccc;
+				margin-top:30px;
+			}
+			.ddd h3{
+				margin:0;
+				height:60px;
+				font-size:20px;
+				width:420px;
+				line-height:60px;				
+				
+			}
+			.ddd div{
+				padding-left:20px;
+				padding-top:5px;
+			}
+			.ddd div a{
+				font-weight:bold;
+			}
+			.dl{
+				height:60px;
+			}
+			.un{
+				position:absolute;				
+				height:20px;
+				border:1px solid #555;
+				display:none;
+				left:150px;
+				top:35px;
+				border-radius:5px;
+				font-size:12px;
+				background:#fcc;
+				color:red;
+				padding-left:5px;
+			}
+			#un1{
+				top:90px;
+				
+			}			
+			.zq,.cw{
+				display:none;
+				width:10px;
+				height:10px;
+				margin-left:2px;
+				background:#11b114;
+				border-radius:50%;
+				border:1px solid green;
+				color:#fff;
+				text-align:center;
+				line-height:10px;
+				
+			}
+			#cw{
+				border-color:red;
+				background:red;						
+			}
+			#un2{
+				top:147px;
+			}
+			#un3{
+				top:200px;
+			}
+			#un4{
+				top:255px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="head">
+			<h1><img src="img/commen/logo.png" alt="" /></h1>
+		</div>
+		<div id="main">
+			<div class="d">
+				<h4>注册之后您可以</h4>	
+				<div class="dl">
+					<div class="dd"><i id="dd1"></i><div><span>购买商品支付订单</span></div></div>
+					<div class="dd"><i id="dd2"></i><div><span>申请开店销售商品</span></div></div>
+				</div>	
+				<div class="dl">
+					<div class="dd"><i id="dd3"></i><div><span>空间好友推送分享</span></div></div>
+					<div class="dd"><i id="dd4"></i><div><span>收藏商品关注店铺</span></div></div>
+				</div>
+				<div class="dl">
+					<div class="dd"><i id="dd5"></i><div><span>商品咨询服务评价</span></div></div>
+					<div class="dd"><i id="dd6"></i><div><span>安全交易诚信无忧</span></div></div>
+				</div>
+				<div class="ddd">
+					<h3>如果您是本站用户</h3>
+					<div>
+						<span>我已经注册过账号，立即</span>
+						<input type="button" value="登录"/>
+						<span>或是</span>
+						<a href="javascript:;">找回密码？</a>
+					</div>
+				</div>
+			</div>
+			<form action="login.html">
+			<h4>用户注册</h4>
+			<div>
+				<span class="s">用户名</span>
+				<input type="text" class="i" id="uname" title="请重新输入"/>
+				<span class="zq zq1">√</span>
+				<span class="cw" id="cw"}>×</span>
+				<span class="un uns"></span>				
+			</div>
+			<div>
+				<span class="s">设置密码</span>
+				<input type="text" class="i" id="upwd"/>
+				<span class="zq zq2">√</span>
+				<span class="cw cw2" id="cw"}>×</span>
+				<span class="un uns2" id="un1"></span>
+			</div>
+			<div>
+				<span class="s">确认密码</span>
+				<input type="text" class="i" id="qpwd"/>
+				<span class="zq zq3">√</span>
+				<span class="cw cw3" id="cw"}>×</span>
+				<span class="un uns3" id="un2"></span>
+			</div>
+			<div>
+				<span class="s">邮箱</span>
+				<input type="text" class="i" id="email"/>
+				<span class="zq zq4">√</span>
+				<span class="cw cw4" id="cw"}>×</span>
+				<span class="un uns4" id="un3"></span>
+			</div>
+			<div>
+				<span class="s">验证码</span>
+				<input type="text" class="s2 i"  id="yzm"/>
+				<span class="un uns5" id="un4"></span>
+				<div class="w0"><span class="super" id="yz"></span></div>
+				<div class="w0"><a href="javascript:;" class="s3" id="b1">看不清，换一张</a></div>
+			</div>
+			<div class="dlast">
+				<input type="submit" value="立即注册"/ class="zc">
+				<input type="radio" checked/>
+				<span>阅读并同意<a href="javascript:;" class="s4">服务协议</a></span>
+			</div>
+		</form>
+		</div>
+		<div id="foot">
+			<div class="footd-wrap">
+				<div class="footd wrapper">
+					<div class="fdf">
+						<a href="">首页</a>
+						<span>|</span>
+						<a href="">联系我们</a>
+						<span>|</span>
+						<a href="">关于我们</a>
+					</div>
+					<span class="fds">
+						Copyright 2017 新ICP备17002861号
+					</span>	
+					<a href="" class="fdt">站长统计</a>						
+				</div>
+			</div>	
+		</div>
+	</body>
+</html>
+<script src="public.js"></script>
+<script src="jquery-1.11.1.min.js"></script>
+<script src="cookie.js"></script>
+<script>
+	function getCode(){
+		var arrStr = [];
+		for( var i = 0 ; i < 6 ; i ++ ){
+			var code = rand( 48,122 );
+			if( code>=58&&code<=64 || code>=91&&code<=96 ){
+				i--;
+			}else{
+				arrStr[i] = String.fromCharCode(code);
+			}
+		}
+		return arrStr.join("");
+	}
+	$("#yzm").focus(function(){
+		$(".uns5").css("display","block");
+		$(".uns5").css("width","100px");
+		$(".uns5").html("请输入验证码");
+	})
+	var flagNum = null;
+	$("#yzm").blur(function(){
+		var yzm = $("#yz").html();
+		var str = $(this).val();
+		if( yzm==str ){
+			$(".uns5").css("display","none");	
+			flagNum = true;
+		}else{
+			$(".uns5").css("display","block");			
+			$(".uns5").html("验证码错误");			
+			$id("yz").innerHTML = getCode();
+		}
+	})
+	$id("yz").innerHTML = getCode();
+	$id("b1").onclick = function(){		
+		$id("yz").innerHTML = getCode();		
+	}
+	
+	
+	$("form").submit(function(){				
+		if( flagNum&&flagName&&flagPwd&&flagQwd&&eM){
+			var ujson = {
+				"uname" : $("#uname").val(),
+				"upwd" : $("#upwd").val()
+			}
+			setCookie( "ulist",JSON.stringify( ujson ) );
+			return true;
+		}else{
+			return false;
+		}
+	})	
+	var flagName = null;
+	$("#uname").focus(function(){
+		$(".uns").css("display","block");
+		$(".uns").css("width","235px");
+		$(".uns").html("请输入6-16位字母（字母区分大小写）数字")		
+	})
+	$("#uname").blur(function(){
+		var reg = /^[a-z0-9A-Z]{6,16}$/;
+		var str = $(this).val();
+		if( reg.test(str) ){	
+			$(".uns").css("display","none");
+			$(".zq1").css("display","inline-block")	;
+			$("#cw").css("display","none")
+			flagName = true;
+		}else{	
+			$(".uns").css("width","150px");
+			$(".uns").html("用户名不合法，请重新输入")
+			$(".zq1").css("display","none")	;
+			$("#cw").css("display","inline-block")
+		}
+		
+	})
+	$("#upwd").focus(function(){
+		$(".uns2").css("display","block");
+		$(".uns2").css("width","260px");
+		$(".uns2").html("请输入6-16位字母（区分大小写）数字特殊字符")
+	})
+	var flagPwd = null;
+	$("#upwd").blur(function(){
+		var reg = /^[a-z0-9A-Z!@#$%^&*()_-]{6,16}$/;
+		var str = $(this).val();
+		if( reg.test(str) ){	
+			$(".uns2").css("display","none");
+			$(".zq2").css("display","inline-block")	;
+			$(".cw2").css("display","none")	
+			flagPwd = true;
+		}else{	
+			$(".uns2").css("width","140px");
+			$(".uns2").html("密码不合法，请重新输入")
+			$(".zq2").css("display","none")	;
+			$(".cw2").css("display","inline-block")
+		}
+		
+	})
+	
+	$("#qpwd").focus(function(){
+		$(".uns3").css("display","block");
+		$(".uns3").css("width","90px");
+		$(".uns3").html("请再次输入密码")
+	})
+	var flagQwd = null;
+	$("#qpwd").blur(function(){
+		var upwd = $("#upwd").val();
+		var str = $(this).val();		
+		if( str==upwd ){	
+			$(".uns3").css("display","none");
+			$(".zq3").css("display","inline-block")	;
+			$(".cw3").css("display","none")
+			flagQwd = true;
+		}else{	
+			$(".uns3").css("width","130px");
+			$(".uns3").html("输入错误，请重新输入")
+			$(".zq3").css("display","none")	;
+			$(".cw3").css("display","inline-block")
+		}
+		
+	})
+	
+	var eM = null;
+	$("#email").focus(function(){
+		$(".uns4").css("display","block");
+		$(".uns4").css("width","140px");
+		$(".uns4").html("请输入您的常用邮箱");
+	})
+	$("#email").blur(function(){
+		var reg = /^\w+@\w+(\.\w+)+$/;
+		var str = $(this).val();
+		if( reg.test(str) ){	
+			$(".uns4").css("display","none");
+			$(".zq4").css("display","inline-block")	;
+			$(".cw4").css("display","none")	
+			eM = true;		
+		}else{	
+			$(".uns4").css("width","140px");
+			$(".uns4").html("请输入正确的邮箱号")
+			$(".zq4").css("display","none")	;
+			$(".cw4").css("display","inline-block")
+		}		
+	})
+</script>

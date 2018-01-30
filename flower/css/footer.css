@@ -1,0 +1,97 @@
+.foot-wrap{
+	width:100%;	
+	background:#f5f5f5;
+	margin-top:50px;
+	border-top:4px solid #ccc;
+	
+}
+.foot-bar{
+	height:187px;
+}
+.footl{
+	width:725px;
+	padding:20px 0 0 20px;
+}
+.footl ul{
+	width:142px;
+	float:left;
+	
+}
+.footl ul h4{
+	font-size:14px;
+	color:#222;
+}
+.footl .fll{
+	width:116px;
+	height:160px;
+	border-right:1px solid #eee;
+}
+.footr{	
+	margin-left:775px;
+}
+.frf{
+	height:26px;
+	line-height:26px;
+	padding-left:35px;
+	font-size:20px;
+	color:#666;
+	display:block;
+	width:90px;
+	height:30px;
+	background:url(../img/top_bg/hd-and-btm.png) 0 -250px no-repeat;
+}
+.frs{
+	font-size:16px;
+	color:#aaa;
+	background-position:0 -280px;
+}
+.frt img{
+	float:left;
+	padding-top:5px;
+	width:80px;
+	height:80px;	
+}
+.frt div{
+	height:80px;
+	float:left;
+	
+}
+.frt div span{		
+	display:block;
+}
+.frtu{
+	height:30px;
+	line-height:60px;
+}
+.frtd{
+	height:50px;
+	line-height:40px;
+}
+.footd-wrap{
+	width:100%;
+	border-top:1px solid #eee;
+}
+.footd{	
+	height:85px;	
+}
+.fdf{	
+	padding-left:550px;
+	height:30px;
+	line-height:30px;
+}
+.fdf span{	
+	padding:0 5px;
+}
+.fds{
+	display:block;
+	height:30px;
+	line-height:30px;
+	padding-left:530px;
+}
+.fdt{
+	display:block;
+	width:50px; 
+	height:25px;
+	line-height:25px;
+	padding-left:600px;
+}

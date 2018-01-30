@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+		<style>
+			.shoplist{
+				width:1050px;
+			}
+			.shop-item{
+				width:100%;
+				margin:20px auto;
+				text-align:center;
+			}
+			.f1{
+				float:left;
+			}
+			.shop-item input[type="checkbox"]{
+				width:30px;
+				height:30px;
+			}
+			.shop-item .f1:after{
+				content:"";
+				display:inline-block;
+				vertical-align:middle;
+				height:100%;				
+			}
+			.shop-item .count > span{
+				display:inline-block;
+				width:30px;
+				height:30px;
+				border:1px solid #fcc;
+				line-height:30px;
+				cursor:pointer;
+				margin-left:5px;
+			}
+			#sum{
+				width:1050px;
+				margin:20px auto 100px;
+				text-align:right;
+			}
+			.shoplist{
+				width:900px;
+				display:block;
+				margin:50px auto 0;
+			}
+			.shop-item p{
+				display:inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="shoplist">
+			<!--
+				'<div class="shop-item clearfix">'+
+					'<p class="fl"><input type="checkbox" class="ck"/></p>'+
+					'<img class="fl" src="img/'+ shopinfo.src +'" alt="" />'+
+					'<p class="fl">'+ shopinfo.name +'</p>'+
+					'<span class="fl">'+ shopinfo.price +'元</span>'+
+					'<p class="fl count" '+
+						'data-id="'+ shopinfo.id +'" '+
+						'data-price="'+ shopinfo.price +'" data-count="'+ shopinfo.count +'"'+
+						'data-name="'+ shopinfo.name +'" data-src="'+ shopinfo.src +'"'+
+						'>'+
+						'<span class="updateCount" data-number="1">+</span>'+
+						'<span class="shop-count">'+ shopinfo.count +'</span>'+
+						'<span class="updateCount" data-number="-1">-</span>'+
+					'</p>'+
+					'<em class="fl sumPrice">'+ (shopinfo.count * shopinfo.price) +'元</em>'+
+					'<i class="fl delBtn">删除</i>'+
+				'</div>';
+			-->
+		</div>
+		<div id="sum" class="clearfix">
+			共多少<span class="count2"></span>件商品，合计<span class="money2"></span>元
+			<label class="f1">
+				<input id="selectAll" type="checkbox" />全选
+			</label>
+		</div>
+	</body>
+</html>
+<script src="jquery-1.11.1.min.js"></script>
+<script src="cookie.js"></script>
+<script>
+	var arr = getCookie("shoplist");
+	var html = "";
+	for( var i = 0 ; i < arr.length ; i ++ ){
+		var shopinfo = arr[i];
+		html += '<div class="shop-item clearfix">'+
+					'<p class="fl"><input type="checkbox" class="ck"/></p>'+
+					'<img class="fl" src="img/goods/'+ shopinfo.src +'" alt="" />'+
+					'<p class="fl">'+ shopinfo.name +'</p>'+
+					'<span class="fl">'+ shopinfo.price +'元</span>'+
+					'<p class="fl count" '+
+						'data-id="'+ shopinfo.id +'" '+
+						'data-price="'+ shopinfo.price +'" data-count="'+ shopinfo.count +'"'+
+						'data-name="'+ shopinfo.name +'" data-src="'+ shopinfo.src +'"'+
+						'>'+
+						'<span class="updateCount" data-number="1">+</span>'+
+						'<span class="shop-count">'+ shopinfo.count +'</span>'+
+						'<span class="updateCount" data-number="-1">-</span>'+
+					'</p>'+
+					'<em class="fl sumPrice">'+ (shopinfo.count * shopinfo.price) +'元</em>'+
+					'<i class="fl delBtn">删除</i>'+
+				'</div>';
+	}
+	$(".shoplist").html(html);
+	function jiesuan(){
+		var sumCount = 0 ;
+		var sumMoney = 0 ;
+		$(".ck:checked").each(function(){
+			sumCount += parseInt( $(this).parent().parent().find(".shop-count").html() );
+			sumMoney += parseInt( $(this).parent().parent().find(".sumPrice").html() );
+		})
+		$(".count2").html(sumCount);
+		$(".money2").html( sumMoney );
+	}
+	$(".ck").click(function(){
+		jiesuan();
+	})
+	$("#selectAll").click(function(){
+		$(".ck").prop("checked",$(this).prop("checked"));
+		jiesuan();
+	})
+	$(".updateCount").click(function(){
+		var pid = $(this).parent().data("id");
+		var pname = $(this).parent().data("name");
+		var sign = $(this).data("number");
+		var count = $(this).parent().find(".shop-count").html();
+		if( count == 1&&sign =="-1" ){
+			return ;
+		}
+		for( var i = 0 ; i < arr.length ; i++ ){
+			if( arr[i].id == pid&&arr[i].name == pname ){
+				sign == 1?arr[i].count++:arr[i].count--;
+				setCookie("shoplist",JSON.stringify(arr));
+				$(this).parent().find(".shop-count").html(arr[i].count);
+				$(this).parent().parent().find(".sumPrice").html( arr[i].count*arr[i].price + "元" );
+				break;
+			}
+		}
+		jiesuan();
+	})
+	$(".delBtn").click(function(){
+		var pid = $(this).parent().find(".count").data("id");
+		var pname = $(this).parent().find(".count").data("name");
+		for( var i = 0 ; i < arr.length ; i++ ){
+			if( arr[i].id == pid&&arr[i].name == pname){
+				arr.split(i,1);
+				setCookie("shoplist",JSON.stringify(arr));
+				break;
+			}
+		}
+		$(this).parent().remove();
+	})
+</script>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				border:0;
+			}
+			ul,li,ol{
+				list-style:none;
+			}
+			.clearfix:after{
+				content:"";
+				height:0;
+				clear:both;
+				display:block;
+				visibility:hidden;
+			}
+			.nav{
+				width:900px;
+				border:1px solid red;
+				margin:0 auto;
+			}
+			.nav>span{
+				display:inline-block;
+				float:left;
+				width:100px;
+				height:40px;
+				text-align:center;
+				line-height:40px;
+				padding:10px 0;
+				border-right:1px solid red;
+				cursor:pointer;
+			}
+			.nav > span.cur{
+				color:red;
+			}
+			.shoplist{
+				width:900px;
+				display:block;
+				margin:50px auto 0;
+			}
+			.shoplist > li{
+				width:200px;
+				border:1px solid #d1d1d1;
+				text-align:center;
+				float:left;
+				margin-right:10px;
+				margin-bottom:10px;
+			}
+			.shoplist > li button{
+				font-size:16px;
+				margin-top:10px;
+				cursor:pointer;
+				border:1px solid #ccc;
+				
+			}
+			.shoplist > li img{
+				height:150px;
+				display:inline-block;
+			}
+			.shoplist>li p{
+				width:100%;
+				height:20px;
+				margin-top:5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<span id="s"><a href="login.html">登录/注册</a></span>
+			<span id="s1"></span>
+		</div>
+		<div class="nav clearfix">
+			<!--<span>小米手机</span>-->
+		</div>
+		<ul class="shoplist clearfix">
+			<!--<li>
+				<a href="page.html">
+					<img src="img/1.jpg" alt="" />
+					<p>小米1</p>
+					<p>890</p>
+				</a>
+				<button>加入购物车</button>
+			</li>-->
+		</ul>
+	</body>
+</html>
+<script src="jquery-1.11.1.min.js"></script>
+<script src="cookie.js"></script>
+<script>
+	window.onload = function(){
+		$.ajax({
+			url : "datalist.json",
+			type : "get",
+			success : function(json){
+				var str = "";
+				var html = "";
+				for( var attr in json ){
+					str += `<span cname='${attr}'>${json[attr].name}</span>`;
+					for( var i = 0 ; i < json[attr].list.length ; i ++ ){
+						var pro = json[attr].list[i];
+						html += `<li>
+									<a href="showpage.html?pid=${pro.id}&cname=${attr}">
+										<img src="img/goods/${pro.src}" alt="" />
+										<p>${pro.name}</p>
+										<p>${pro.price}</p>
+									</a>
+									<button data-id='${pro.id}' data-src='${pro.src}' data-price='${pro.price}' data-name='${pro.name}'>加入购物车</button>
+								</li>`;
+					}
+				}
+				$(".nav").html(str);
+				$(".shoplist").html(html);
+				$(".nav span").mouseenter(function(){
+					var cname = $(this).attr("cname");
+					var page = "";
+					for( var i = 0 ; i < json[cname].list.length ; i ++ ){
+						var pro = json[cname].list[i];
+						page += `<li>
+									<a href="showpage.html?pid=${pro.id}&cname=${cname}">
+										<img src="img/goods/${pro.src}" alt="" />
+										<p>${pro.name}</p>
+										<p>${pro.price}</p>
+									</a>
+									<button data-id='${pro.id}' data-src='${pro.src}' data-price='${pro.price}' data-name='${pro.name}'>加入购物车</button>
+								</li>`
+					}
+					$(".shoplist").html(page);
+				})
+			}
+		})
+		$(".shoplist").on("click","button",function(){
+			var arr = [];
+			var flag = true;
+			var json = {
+				id : $(this).data("id"),
+				name : $(this).data("name"),
+				src : $(this).data("src"),
+				price : $(this).data("price"),
+				count : 1
+			}
+			var oldCookie = getCookie("shoplist");
+			if( oldCookie.length!=0 ){
+				arr = oldCookie;
+				for( var i = 0 ; i < arr.length ; i ++ ){
+					if( json.id==arr[i].id&&json.name == arr[i].name ){
+						arr[i].count++;
+						flag = false;
+						break;
+					}
+				}
+			}
+			if(flag){
+				arr.push(json);
+			}
+			setCookie("shoplist",JSON.stringify(arr));
+			if(!confirm("点击确定继续购物，点击取消去购物车结算")){
+				location.href = "shopcar.html"
+			}
+		})
+	}
+</script>
